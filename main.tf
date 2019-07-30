@@ -2,8 +2,9 @@ module "app" {
   source = "./modules/app"
 
   name        = var.name
+  num_apps = var.num_apps
 
-  subnet_id = module.vpc.app_subnet_id
+  app_subnet_id = module.vpc.app_subnet_id
   // security_groups = var.security_groups
   // internal        = var.internal
   //
@@ -26,6 +27,5 @@ module "app" {
 
 module "vpc" {
   source = "./modules/vpc"
-
-
+  cidr_block = var.cidr_block
 }

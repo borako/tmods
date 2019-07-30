@@ -3,15 +3,17 @@ variable "num_apps" {
   type = number
 }
 
-// variable "ami_name" {
-//   description = "AMI used for the instance"
-//   type = string
-// }
 variable "instance_type" {
   description = "Instance type used"
   type = string
 }
+
 variable "name" {
   description = "The name of the cluster"
+  type = string
+}
+
+variable "app_subnet_id" {
+  description = "Subnet id for app"
   type = string
 }
