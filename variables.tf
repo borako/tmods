@@ -17,3 +17,12 @@ variable "cidr_block" {
   description = "CIDR block for the vpc and subnets"
   type = map
 }
+
+// variable "vpc_id" {
+//   description = "Main VPC ID"
+//   type = string
+// }
+// variable "app_subnet_id" {
+//   description = "Subnet ID for app"
+//   type = string
+// }
