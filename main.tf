@@ -2,7 +2,8 @@ module "app" {
   source = "./modules/app"
 
   name        = var.name
-  app_subnet_id = module.vpc.app_subnet_id
+  vpc_id = module.vpc.main_vpc_id
+  app_subnet_id = module.vpc.vpc_id
 }
 
 module "vpc" {

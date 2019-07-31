@@ -17,3 +17,8 @@ variable "app_subnet_id" {
   description = "Subnet id for app"
   type = string
 }
+
+variable "vpc_id" {
+  description = "VPC id"
+  type = string
+}

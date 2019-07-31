@@ -52,6 +52,7 @@ resource "aws_instance" "app" {
 
 resource "aws_security_group" "app" {
   name = "${var.name}-sg"
+  vpc_id = var.vpc_id
 }
 
 resource "aws_security_group_rule" "asg_allow_inbound" {

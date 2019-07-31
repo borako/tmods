@@ -15,6 +15,9 @@ resource "aws_subnet" "app" {
   vpc_id = aws_vpc.main.id
   availability_zone = "us-east-1a"
   cidr_block = var.cidr_block["app"]
+  tags = {
+    Name = "app"
+  }
 }
 
 
