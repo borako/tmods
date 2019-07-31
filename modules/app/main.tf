@@ -35,7 +35,7 @@ resource "aws_instance" "app" {
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.app.id]
-  subnet_id = module.vpc.app_subnet_id
+  subnet_id = app_subnet_id
 
   user_data = <<-EOF
               #!/bin/bash
