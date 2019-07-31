@@ -13,7 +13,7 @@ variable "name" {
   type = string
 }
 
-// variable "app_subnet_id" {
-//   description = "Subnet id for app"
-//   type = string
-// }
+variable "app_subnet_id" {
+  description = "Subnet id for app"
+  type = string
+}
