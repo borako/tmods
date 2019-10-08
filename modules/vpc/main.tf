@@ -8,17 +8,20 @@ terraform {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = var.cidr_block["main"]
-}
-
-resource "aws_subnet" "app" {
-  vpc_id = aws_vpc.main.id
-  availability_zone = "us-east-1a"
-  cidr_block = var.cidr_block["app"]
+  cidr_block = var.cidr_block
   tags = {
-    Name = "app"
+    Name = var.vpc_name
   }
 }
+
+// resource "aws_subnet" "app" {
+//   vpc_id = aws_vpc.main.id
+//   availability_zone = "us-east-1a"
+//   cidr_block = var.cidr_block["app"]
+//   tags = {
+//     Name = "app"
+//   }
+// }
 
 
 // resource "aws_subnet" "s2" {

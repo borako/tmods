@@ -1,5 +1,5 @@
 variable "num" {
-  description = "Number of app instances"
+  description = "Number of fp instances"
   type = number
 }
 
@@ -13,22 +13,12 @@ variable "name" {
   type = string
 }
 
-// variable "app_subnet_id" {
-//   description = "Subnet id for app"
-//   type = string
-// }
-//
 variable "vpc_id" {
   description = "VPC id"
   type = string
 }
 
-variable "fp_sg_id" {
-  description = "SG id for fp"
-  type = string
-}
-
 variable "cidr_block" {
-  description = "CIDR block for app subnet"
+  description = "CIDR block for fp subnet"
   type = string
 }

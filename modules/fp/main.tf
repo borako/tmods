@@ -20,13 +20,12 @@ variable "server_port" {
   default = 8080
 }
 
-resource "aws_instance" "app" {
-  // ami = "${data.aws_ami.ubuntu.id}"
+resource "aws_instance" "fp" {
   count = var.num
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.app.id]
-  subnet_id = aws_subnet.app.id
+  vpc_security_group_ids = [aws_security_group.fp.id]
+  subnet_id = aws_subnet.fp.id
 
   user_data = <<-EOF
               #!/bin/bash
@@ -42,22 +41,23 @@ resource "aws_instance" "app" {
 }
 
 # Security group
-resource "aws_security_group" "app" {
+resource "aws_security_group" "fp" {
   name = "${var.name}-sg"
   vpc_id = var.vpc_id
 }
 
+# Ingress rule for SG
 resource "aws_security_group_rule" "asg_allow_inbound" {
   type = "ingress"
   from_port = var.server_port
   to_port = var.server_port
   protocol = "tcp"
-  source_security_group_id = var.fp_sg_id
-  security_group_id = aws_security_group.app.id
+  cidr_blocks = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.fp.id
 }
 
 # Subnet
-resource "aws_subnet" "app" {
+resource "aws_subnet" "fp" {
   vpc_id = var.vpc_id
   availability_zone = "us-east-1a"
   cidr_block = var.cidr_block
